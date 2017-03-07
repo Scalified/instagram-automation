@@ -1,0 +1,16 @@
+#### Backend part ####
+node_modules
+.dist
+.pm2
+backend/mail/pickup/*
+backend/public/*
+.logs
+
+#### Idea specific ####
+.idea
+*.iml
+*.ipr
+*.iws
+/out/
+.idea_modules/
+atlassian-ide-plugin.xml

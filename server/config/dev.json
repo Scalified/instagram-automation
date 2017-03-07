@@ -1,0 +1,37 @@
+{
+  "app": {
+    "Mongo": {
+      "address": "mongodb://${DB_HOST}/smedia-automation",
+      "options": {
+        "server": {
+          "socketOptions": {
+            "keepAlive": 1
+          },
+          "poolSize": 100,
+          "auto_reconnect": true,
+          "reconnectInterval": 1000
+        },
+        "autoIndex": true
+      }
+    },
+    "RabbitMQ": {
+      "address": "amqp://bqvkdqmu:JJ6kFpRgW9OfYTQKak5bVHaegMuf_Tk8@salamander.rmq.cloudamqp.com/bqvkdqmu?heartbeat=5"
+    },
+    "Cors": {
+      "allowedOrigins": [
+        "localhost:*",
+        "127.0.0.1:*"
+      ],
+      "headers": [
+        "X-Requested-With",
+        "Content-Type",
+        "Authorization"
+      ]
+    },
+    "ErrorHandler": {
+      "stackTrace": false
+    },
+    "PORT": 3000,
+    "SECRET": "557efd2710b04c05a198b3053361b2cc"
+  }
+}

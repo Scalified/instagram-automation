@@ -1,0 +1,17 @@
+{
+  "api": {
+    "host": "localhost:3000"
+  },
+  "mongo": {
+    "address": "mongodb://localhost/smedia-automation",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive": 1
+        },
+        "auto_reconnect": true,
+        "reconnectInterval": 1000
+      }
+    }
+  }
+}

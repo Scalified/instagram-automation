@@ -1,0 +1,49 @@
+{
+  "name": "instagram-automation",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "debug": "concurrently --kill-others --raw \"npm run debug-web\" \"npm run debug-worker\" \"npm run watch-compile\"",
+    "debug-web": "nodemon ./server/web/start.js --environment dev --exec babel-node",
+    "debug-worker": "nodemon ./server/worker/start.js --environment dev --exec babel-node",
+    "compile": "npm run clean && babel ./server -d ./.dist --source-maps && cp -r ./server/config/*.json ./.dist/config",
+    "clean": "rm -rf ./.dist",
+    "watch-compile": "babel ./server --watch -d .dist --source-maps",
+    "it:dev": "mocha ./server/test/integration --opts ./server/test/mocha.opts --config=./server/test/.config/dev.json || true"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.18.0",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.1",
+    "es6-error": "^3.0.0",
+    "express": "^4.13.4",
+    "express-cors": "0.0.3",
+    "instagram-private-api": "^0.5.15",
+    "jackrabbit": "^4.3.0",
+    "mongoose": "^4.6.6",
+    "morgan": "^1.7.0",
+    "mustbe": "^0.4.0",
+    "nconf": "^0.8.4",
+    "pm2": "^1.1.3",
+    "uuid": "^3.0.1",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-3": "^6.5.0",
+    "compression": "^1.6.2",
+    "concurrently": "^2.1.0",
+    "es6-deferred": "^1.3.0",
+    "minimist": "^1.2.0",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2",
+    "should": "^9.0.0",
+    "sinon": "^1.17.4",
+    "supertest": "^1.2.0",
+    "supertest-as-promised": "^3.1.0"
+  }
+}
